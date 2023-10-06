@@ -1,4 +1,5 @@
-﻿@model CreateProductDto
+﻿@model Realestate_Dapper_UI.Dtos.ProductDtos.CreateProductDto
+
 @{
     ViewData["Title"] = "CreateProduct";
     Layout = "~/Views/Admin/Index.cshtml";
@@ -10,7 +11,6 @@
             <div class="bg-light rounded h-100 p-4">
                 <h6 class="mb-4">Yeni İlan Ekleme Sayfası</h6>
                 <form method="post">
-
                     <label>İlan Başlığı</label>
                     <input type="text" asp-for="Title" class="form-control" />
                     <br />
@@ -21,7 +21,7 @@
                     <input type="text" asp-for="Dİstrict" class="form-control" />
                     <br />
                     <label>Kategori</label>
-                    @Html.DropDownListFor(x=>x.CategoryID, (List<SelectListItem>)ViewBag.v, new {@class="form-control"})
+                    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.v,new {@class="form-control"})
                     <br />
                     <label>Fiyat</label>
                     <input type="text" asp-for="Price" class="form-control" />
@@ -32,8 +32,8 @@
                     <label>Kapak Fotoğrafı</label>
                     <input type="text" asp-for="CoverImage" class="form-control" />
                     <br />
-                    <label>Açık Adresi</label>
-                    <textarea type="text" asp-for="Address" class="form-control" />
+                    <label>İlan Açık Adresi</label>
+                    <textarea asp-for="Address" class="form-control" rows="5"></textarea>
                     <br />
                     <button class="btn btn-primary">İlanı Kaydet</button>
                 </form>
@@ -41,4 +41,3 @@
         </div>
     </div>
 </div>
-
