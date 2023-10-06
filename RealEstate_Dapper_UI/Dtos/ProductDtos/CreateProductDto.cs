@@ -8,7 +8,7 @@
         public string Type { get; set; }
         public string City { get; set; }
         public string Dİstrict { get; set; }
-        public string CategoryName { get; set; }
+        public string CategoryID { get; set; }
         public string Address { get; set; }
     }
 }
