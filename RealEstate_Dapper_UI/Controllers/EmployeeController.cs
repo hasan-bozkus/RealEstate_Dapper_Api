@@ -71,7 +71,6 @@ namespace Realestate_Dapper_UI.Controllers
             }
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> UpdateEmployee(UpdateEmployeeDto updateEmployeeDto)
         {
