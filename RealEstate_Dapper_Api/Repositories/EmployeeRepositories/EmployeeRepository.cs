@@ -52,14 +52,13 @@ namespace RealEstate_Dapper_Api.Repositories.EmployeeRepositories
 
         public async Task<GetByIDEmployeeDto> GetEmployee(int id)
         {
-            string query = "Select * From Employee Where EmployeeID=@employeeID";
+            string query = "Select * From Employee Where EmployeeID=@EmployeeID";
             var parameters = new DynamicParameters();
-            parameters.Add("@employeeID", id);
+            parameters.Add("@EmployeeID", id);
             using (var connection = _context.CreateConnection())
             {
-                var values = await connection.QueryFirstAsync<GetByIDEmployeeDto>(query, parameters);
+                var values = await connection.QueryFirstOrDefaultAsync<GetByIDEmployeeDto>(query, parameters);
                 return values;
-
             }
         }
 
