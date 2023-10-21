@@ -45,7 +45,7 @@ namespace RealEstate_Dapper_Api.Repositories.StatisticsRepositories
 
         public int AvargeRoomCount()
         {
-            string query = "Select Avg(Price) From Product where Type='Kiralık'";
+            string query = "Select Avg(RoomCount) From ProductDetails";
             using (var connection = _context.CreateConnection())
             {
                 var values = connection.QueryFirstOrDefault<int>(query);
@@ -55,7 +55,7 @@ namespace RealEstate_Dapper_Api.Repositories.StatisticsRepositories
 
         public decimal AvergeProductPriceByRent()
         {
-            string query = "Select Avg(RoomConut) From ProductDetail";
+            string query = "Select Avg(Price) From Product where Type='Kiralık'";
             using (var connection = _context.CreateConnection())
             {
                 var values = connection.QueryFirstOrDefault<decimal>(query);
