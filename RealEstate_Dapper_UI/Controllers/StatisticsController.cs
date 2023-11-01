@@ -65,51 +65,51 @@ namespace Realestate_Dapper_UI.Controllers
             #endregion
 
             #region CityNameByMaxProductCount
-            var responseMessage9 = await client.GetAsync("https://localhost:44348/api/Statistics/ActiveCategoryCount");
+            var responseMessage9 = await client.GetAsync("https://localhost:44348/api/Statistics/CityNameByMaxProductCount");
             var jsonData9 = await responseMessage9.Content.ReadAsStringAsync();
             ViewBag.CityNameByMaxProductCount = jsonData9;
             #endregion
 
-            #region activeEmployeeConut
-            var responseMessage10 = await client.GetAsync("https://localhost:44348/api/Statistics/ActiveEmployeeCount");
+            #region DifferentCityCount
+            var responseMessage10 = await client.GetAsync("https://localhost:44348/api/Statistics/DifferentCityCount");
             var jsonData10 = await responseMessage10.Content.ReadAsStringAsync();
-            ViewBag.activeEmployeeConut = jsonData10;
+            ViewBag.DifferentCityCount = jsonData10;
             #endregion
 
-            #region apartmentCount
-            var responseMessage11 = await client.GetAsync("https://localhost:44348/api/Statistics/ApartmentCount");
+            #region EmployeeNameByMaxProductCount
+            var responseMessage11 = await client.GetAsync("https://localhost:44348/api/Statistics/EmployeeNameByMaxProductCount");
             var jsonData11 = await responseMessage11.Content.ReadAsStringAsync();
-            ViewBag.apartmentCount = jsonData11;
+            ViewBag.EmployeeNameByMaxProductCount = jsonData11;
             #endregion
 
-            #region avergeProductPriceByRent
-            var responseMessage12 = await client.GetAsync("https://localhost:44348/api/Statistics/AvergeProductPriceByRent");
+            #region LastProductPrice
+            var responseMessage12 = await client.GetAsync("https://localhost:44348/api/Statistics/LastProductPrice");
             var jsonData12 = await responseMessage12.Content.ReadAsStringAsync();
-            ViewBag.avergeProductPriceByRent = jsonData12;
+            ViewBag.LastProductPrice = jsonData12;
             #endregion
 
-            #region activeCategoryCount
-            var responseMessage13 = await client.GetAsync("https://localhost:44348/api/Statistics/ActiveCategoryCount");
+            #region NewestBuildingYear
+            var responseMessage13 = await client.GetAsync("https://localhost:44348/api/Statistics/NewestBuildingYear");
             var jsonData13 = await responseMessage13.Content.ReadAsStringAsync();
-            ViewBag.activeCategoryCount = jsonData13;
+            ViewBag.NewestBuildingYear = jsonData13;
             #endregion
 
-            #region activeEmployeeConut
-            var responseMessage14 = await client.GetAsync("https://localhost:44348/api/Statistics/ActiveEmployeeCount");
+            #region OldestBuildingYear
+            var responseMessage14 = await client.GetAsync("https://localhost:44348/api/Statistics/OldestBuildingYear");
             var jsonData14 = await responseMessage14.Content.ReadAsStringAsync();
-            ViewBag.activeEmployeeConut = jsonData14;
+            ViewBag.OldestBuildingYear = jsonData14;
             #endregion
 
-            #region apartmentCount
-            var responseMessage15 = await client.GetAsync("https://localhost:44348/api/Statistics/ApartmentCount");
+            #region PassiveCategoryCount
+            var responseMessage15 = await client.GetAsync("https://localhost:44348/api/Statistics/PassiveCategoryCount");
             var jsonData15 = await responseMessage15.Content.ReadAsStringAsync();
-            ViewBag.apartmentCount = jsonData15;
+            ViewBag.PassiveCategoryCount = jsonData15;
             #endregion
 
-            #region avergeProductPriceByRent
-            var responseMessage16 = await client.GetAsync("https://localhost:44348/api/Statistics/AvergeProductPriceByRent");
+            #region ProductCount
+            var responseMessage16 = await client.GetAsync("https://localhost:44348/api/Statistics/ProductCount");
             var jsonData16 = await responseMessage16.Content.ReadAsStringAsync();
-            ViewBag.avergeProductPriceByRent = jsonData16;
+            ViewBag.ProductCount = jsonData16;
             #endregion
             return View();
         }
