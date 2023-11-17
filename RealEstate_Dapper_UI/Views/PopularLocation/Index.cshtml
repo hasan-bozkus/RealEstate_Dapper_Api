@@ -28,13 +28,13 @@
                                 <tr>
                                     <th scope="row">@count</th>
                                     <td> <img src="@item.ImageUrl" style="border-radius: 50px; height: 10%; width: 10%" /> @item.CityName</td>
-                                    <td><a href="/PopularLocation/DeletePopularLocation/@item.LocationID" class="btn btn-outline-danger">Sil</a></td>
+                                    <td><a href="/PopularLocation/DeletePopularLocation/@item.LocationID" onclick="return confirm('Silmek istediğinize emin misiniz?')" class="btn btn-outline-danger">Sil</a></td>
                                     <td><a href="/PopularLocation/UpdatePopularLocation/@item.LocationID" class="btn btn-outline-success">Güncelle</a></td>
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    <a href="/PopularLocation/CreatePopularLocation/" class="btn btn-outline-info">Yeni Hizmet Girişi</a>
+                    <a href="/PopularLocation/CreatePopularLocation/" class="btn btn-outline-info">Yeni Lokasyon Girişi</a>
                 </div>
             </div>
         </div>
