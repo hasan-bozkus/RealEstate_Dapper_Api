@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Admin/Index.cshtml";
+
+    int Count = 0;
 }
 
 <div class="container-fluid pt-4 px-4">
@@ -30,8 +32,9 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
+                                Count++;
                                 <tr>
-                                    <th scope="row">@item.ProductID</th>
+                                    <th scope="row">@Count</th>
                                     <td>@item.Title</td>
                                     <td>@item.City</td>
                                     <td>@item.Dİstrict</td>
@@ -44,11 +47,11 @@
                                     <td>
                                         @if(item.DealOfTheDay == true)
                                         {
-                                            <a href="/Product/ProductDetail/@item.ProductID" class="btn btn-outline-secondary">Pasif Yap</a>
+                                            <a href="/Product/ProductDealOfTheDayStatusChangeToFalse/@item.ProductID" class="btn btn-outline-secondary">Pasif Yap</a>
                                         }
                                         @if(item.DealOfTheDay == false)
                                         {
-                                            <a href="/Product/ProductDetail/@item.ProductID" class="btn btn-outline-warning">Aktif Yap</a>
+                                            <a href="/Product/ProductDealOfTheDayStatusChangeToTrue/@item.ProductID" class="btn btn-outline-warning">Aktif Yap</a>
                                         }
                                     </td>
                                 </tr>
