@@ -1,4 +1,5 @@
 ﻿@model List<ResultProductDto>
+
 @{
     int Count = 0;
 }
@@ -23,10 +24,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(var item in Model)
+                    @foreach (var item in Model)
                     {
                         Count++;
-
                         <tr>
                             <td>@Count</td>
                             <td>00.00.0000</td>

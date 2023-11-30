@@ -1,4 +1,4 @@
-﻿namespace RealEstate_Dapper_UI.Dtos.TestimonialDtos
+﻿namespace Realestate_Dapper_UI.Dtos.TestimonialDtos
 {
     public class ResultTestimonialDto
     {
