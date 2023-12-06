@@ -3,7 +3,7 @@
     int count = 0;
 }
 
-@model List<ResultProductDto>
+@model List<ResultLast5ProductWithCategoryDto>
 
 <div class="container-fluid pt-4 px-4">
     <div class="bg-light text-center rounded p-4">
@@ -30,11 +30,11 @@
                         count++;
                         <tr>
                         <td>@count</td>
-                        <td>00.00.0000</td>
+                        <td>@(((DateTime)item.AdvertisementDate).ToString("dd-MMM-yyyy"))</td>
                         <td>@item.Title</td>
                         <td>@item.City-@item.Dİstrict</td>
                         <td>@item.CategoryName</td>
-                        <td>@item.Price</td>
+                        <td>@item.Price ₺</td>
                         <td><a class="btn btn-sm btn-primary" href="">İlanı Gör</a></td>
                     </tr>
                     }
