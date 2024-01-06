@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.SignalR
+@{
+    ViewData["Title"] = "Index";
+}
+
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+@section Scripts
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="Card">
+                <script type="text/javascript">
+                    $(document).ready(() => {
+                        var connection = new signalR.HubConnectionBuilder()
+                            .withUrl("https://localhost:44348/SignalrHub")
+                            .build();
+
+                        $("#connstatus").text(connection.state);
+                        connection.start().then(() => {
+                            $("#connstatus").text(connection.state);
+                        }).catch((err) => { console.log(err) });
+                    }); 
+                </script>
+            </div>
+        </div>
+    </div>
+}
+
+
+<div class="row">
+    <div class="col-m-8 offset-2">Bağlantı Durumu: <strong id="connstatus"></strong></></div>
+</div>
