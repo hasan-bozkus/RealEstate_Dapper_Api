@@ -21,6 +21,8 @@ namespace RealEstate_Dapper_Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddHttpClient();
+
             // Add services to the container.
             builder.Services.AddTransient<Context>();
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
