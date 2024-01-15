@@ -20,7 +20,10 @@
                         connection.start().then(() => {
                             $("#connstatus").text(connection.state);
 
-                            connection.invoke("SendCategoryCountAsync");
+                            setInterval(() => {
+                                connection.invoke("SendCategoryCountAsync");
+                            }, 1000);
+
                         }).catch((err) => { console.log(err) });
 
 
