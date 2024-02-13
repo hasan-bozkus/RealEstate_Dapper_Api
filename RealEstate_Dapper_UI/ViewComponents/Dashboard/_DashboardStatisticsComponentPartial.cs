@@ -37,7 +37,8 @@ namespace Realestate_Dapper_UI.ViewComponents.Dashboard
             #region avergeProductPriceByRent
             var responseMessage4 = await client.GetAsync("https://localhost:44348/api/Statistics/AvergeProductPriceByRent");
             var jsonData4 = await responseMessage4.Content.ReadAsStringAsync();
-            ViewBag.avergeProductPriceByRent = jsonData4;
+            
+            ViewBag.averageProductPriceByRent = jsonData4;
             #endregion
 
             return View();
