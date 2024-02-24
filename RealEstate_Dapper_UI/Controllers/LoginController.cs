@@ -58,7 +58,7 @@ namespace Realestate_Dapper_UI.Controllers
                         };
 
                         await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProps);
-                        return RedirectToAction("Index", "MyAdverts", new { area = "EstateAgent" });
+                        return RedirectToAction("Index", "Employee"/*, new { area = "EstateAgent" }*/);
                     }
                 }
             }
