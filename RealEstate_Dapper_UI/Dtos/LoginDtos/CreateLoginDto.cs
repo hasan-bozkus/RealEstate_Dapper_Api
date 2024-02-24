@@ -1,4 +1,4 @@
-﻿namespace RealEstate_Dapper_Api.Dtos.LoginsDtos
+﻿namespace Realestate_Dapper_UI.Dtos.LoginDtos
 {
     public class CreateLoginDto
     {

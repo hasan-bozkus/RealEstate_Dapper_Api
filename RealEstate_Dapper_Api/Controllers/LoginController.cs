@@ -23,6 +23,7 @@ namespace RealEstate_Dapper_Api.Controllers
         {
             string query = "Select * From AppUser Where UserName=@userName and Password=@password";
             string query2 = "Select UserId From AppUser Where UserName=@userName and Password=@password";
+            string query3 = "SELECT UserName, Password, UserId FROM AppUser WHERE UserName = @userName AND Password = @password;";
            
             var parameters = new DynamicParameters();
             parameters.Add("@userName", createLoginDto.UserName);
@@ -31,12 +32,13 @@ namespace RealEstate_Dapper_Api.Controllers
             {
                 var values = await connection.QueryFirstOrDefaultAsync<CreateLoginDto>(query, parameters);
                 var values2 = await connection.QueryFirstAsync<GetAppUserIdDto>(query2, parameters);
+                var values3 = await connection.QueryFirstOrDefaultAsync<GetAppUserIdDto>(query3, parameters);
                
                 if(values != null)
                 {
                     GetCheckAppUserViewModel model = new GetCheckAppUserViewModel();
-                    model.UserName = values.UserName;
-                    model.Id = values2.UserId;
+                    model.UserName = values3.UserName;
+                    model.Id = values3.UserId;
                     var token = JWTTokenGenerator.GenerateToken(model);
                     return Ok(token);
                 }
