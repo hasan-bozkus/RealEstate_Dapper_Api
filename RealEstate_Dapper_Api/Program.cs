@@ -6,6 +6,7 @@ using RealEstate_Dapper_Api.Repositories.CategoryRepository;
 using RealEstate_Dapper_Api.Repositories.ContactRepositories;
 using RealEstate_Dapper_Api.Repositories.EmployeeRepositories;
 using RealEstate_Dapper_Api.Repositories.EstateAgentRepostiories.DashboardRepositories.ChartRepositories;
+using RealEstate_Dapper_Api.Repositories.EstateAgentRepostiories.DashboardRepositories.LastProductsRepositories;
 using RealEstate_Dapper_Api.Repositories.EstateAgentRepostiories.DashboardRepositories.StatisticRepositories;
 using RealEstate_Dapper_Api.Repositories.PopularLocationRepositories;
 using RealEstate_Dapper_Api.Repositories.ProductRepository;
@@ -40,6 +41,7 @@ namespace RealEstate_Dapper_Api
             builder.Services.AddTransient<IToDoListRepository, ToDoListRepository>();
             builder.Services.AddTransient<IStatisticRepository, StatisticRepository>();
             builder.Services.AddTransient<IChartRepository, ChartRepository>();
+            builder.Services.AddTransient<ILast5ProductsRepository, Last5ProductsRepository>();
 
             builder.Services.AddCors(opt =>
             {

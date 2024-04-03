@@ -1,69 +1,63 @@
-﻿<h1>Chart Alanı</h1>
+﻿@model List<ResultEstateAgentDashboardChartDto>
 
 
-@* <!DOCTYPE html>
-<html>
-
-<body>
-
-<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-<script>
-const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-const yValues = [55, 49, 44, 24, 15];
-const barColors = ["red", "green","blue","orange","brown"];
-
-new Chart("myChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: "World Wine Production 2018"
-    }
-  }
-});
-</script>
-
-</body>
-</html> *@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-<script>
-     $(document).ready(() => {
-         "use strict";
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-         // Single Bar Chart
-         var ctx4 = $("#bar-charts").get(0).getContext("2d");
-         var myChart4 = new Chart(ctx4, {
-             type: "bar",
-             data: {
-                 labels: ["Ankara", "Bursa", "İstanbul", "Adana", "Mardin"],
-                 datasets: [{
+
+@{
+    var cityNames = new List<string>();
+    var cityCounts = new List<int>();
+}
+
+@foreach (var item in Model)
+{
+    cityNames.Add(item.City);
+    cityCounts.Add(item.CityCount);
+}
+
+<script>
+    $(document).ready(() => {
+        "use strict";
+        // Single Bar Chart
+        var ctx4 = $("#bar-charts").get(0).getContext("2d");
+        var myChart4 = new Chart(ctx4, {
+            type: "bar",
+            data: {
+                labels: @Html.Raw(Json.Serialize(cityNames)),
+                datasets: [{
                     label: "Türkiye",
-                     backgroundColor: [
-                         "rgba(0, 156, 255, .7)",
-                         "rgba(0, 156, 255, .6)",
-                         "rgba(0, 156, 255, .5)",
-                         "rgba(0, 156, 255, .4)",
-                         "rgba(0, 156, 255, .3)"
-                     ],
-                     data: [55, 49, 44, 24, 15]
-                 }]
-             },
-             options: {
-                 responsive: true
-             }
-         });
-     });
+                    backgroundColor: [
+                        "rgba(0, 156, 255, .7)",
+                        "rgba(0, 156, 255, .6)",
+                        "rgba(0, 156, 255, .5)",
+                        "rgba(0, 156, 255, .4)",
+                        "rgba(0, 156, 255, .3)"
+                    ],
+                    data: @Html.Raw(Json.Serialize(cityCounts))
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    });
 </script>
+
+@* <div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Şehir İlan İstatistiği</h6>
+                    <a href="">Show All</a>
+                </div>
+                <canvas id="bar-charts"></canvas>
+            </div>
+        </div>
+    </div>
+</div> *@
+
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-sm-12 col-xl-6">
@@ -75,14 +69,14 @@ new Chart("myChart", {
                 <canvas id="bar-charts"></canvas>
             </div>
         </div>
-        @* <div class="col-sm-12 col-xl-6">
-            <div class="bg-light text-center rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Salse & Revenue</h6>
-                    <a href="">Show All</a>
-                </div>
-                <canvas id="salse-revenue"></canvas>
-            </div>
-        </div> *@
+        <div class="col-sm-12 col-xl-6">
+        <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+        <h6 class="mb-0">Salse & Revenue</h6>
+        <a href="">Show All</a>
+        </div>
+        <canvas id="salse-revenue"></canvas>
+        </div>
+        </div>
     </div>
 </div>
