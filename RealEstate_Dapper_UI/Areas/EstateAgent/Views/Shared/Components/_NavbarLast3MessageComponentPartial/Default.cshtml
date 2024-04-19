@@ -1,0 +1,60 @@
+﻿@model List<ResultInBoxMessageDto>
+
+
+@{
+    string sure = "";
+    DateTime now = DateTime.Now;
+}
+<div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+        <i class="fa fa-envelope me-lg-2"></i>
+        <span class="d-none d-lg-inline-flex">Mesajlar</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+        @foreach (var item in Model)
+        {
+
+            TimeSpan zaman = now.Subtract(item.SendDate);
+
+            if (zaman.Days == 0)
+            {
+                if (zaman.Minutes == 0 && zaman.Hours == 0)
+                {
+                    sure = " Şimdi";
+                }
+                else if (zaman.Minutes > 0 && zaman.Hours == 0)
+                {
+                    sure = zaman.Minutes + " Dakika önce";
+                }
+                else
+                {
+                    sure = zaman.Hours + " Saat " + zaman.Minutes + " dakika önce";
+                }
+            }
+            else
+            {
+                if (zaman.Hours == 0)
+                {
+                    sure = zaman.Days + " Gün önce";
+                }
+                else
+                {
+                    sure = zaman.Days + " Gün " + zaman.Hours + " saat önce";
+                }
+            }
+
+            <a href="#" class="dropdown-item">
+                <div class="d-flex align-items-center">
+                    @* <img class="rounded-circle" src="~/dashmin/img/@item.UserImageUrl" alt="" style="width: 40px; height: 40px;">*@
+                    <img class="rounded-circle" src="@item.UserImageUrl" alt="" style="width: 40px; height: 40px;">
+                    <div class="ms-2">
+                        <h6 class="fw-normal mb-0">@item.Name bir mesaj gönderdi.</h6>
+                        <small>@sure</small>
+                    </div>
+                </div>
+            </a>
+            <hr class="dropdown-divider">
+        }
+        <a href="#" class="dropdown-item text-center">Tüm Mesajları Gör</a>
+    </div>
+</div>
