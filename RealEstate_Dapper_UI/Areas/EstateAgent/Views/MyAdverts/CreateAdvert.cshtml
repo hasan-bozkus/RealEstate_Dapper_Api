@@ -20,7 +20,7 @@
                     <input type="text" asp-for="Dİstrict" class="form-control" />
                     <br />
                     <label>Kategori</label>
-                    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+                    @Html.DropDownListFor(x => x.ProductCategory, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
                     <br />
                     <label>Fiyat</label>
                     <input type="text" asp-for="Price" class="form-control" />
@@ -34,7 +34,10 @@
                     <label>İlan Açık Adresi</label>
                     <textarea asp-for="Address" class="form-control" rows="5"></textarea>
                     <br />
-                    <button class="btn btn-primary">İlanı Kaydet</button>
+                    <label>İlan Açıklaması</label>
+                    <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+                    <br />
+                    <button class="btn btn-primary">İlanı Oluştur</button>
                 </form>
             </div>
         </div>
