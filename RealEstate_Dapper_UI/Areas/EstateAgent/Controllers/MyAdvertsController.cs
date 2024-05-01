@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using Realestate_Dapper_UI.Dtos.CategoryDtos;
 using Realestate_Dapper_UI.Dtos.ProductDtos;
 using Realestate_Dapper_UI.Services;
 
@@ -42,6 +44,33 @@ namespace Realestate_Dapper_UI.Areas.EstateAgent.Controllers
                 var values = JsonConvert.DeserializeObject<List<ReslutProductAdvertListWithCategoryByEmployeeDto>>(jsonData);
                 return View(values);
             }
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CreateAdvert()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:44348/api/Categories");
+
+            var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
+
+            List<SelectListItem> categoryValues = (from x in values.ToList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryID.ToString()
+                                                   }).ToList();
+            ViewBag.v = categoryValues;
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateAdvert(string x)
+        {
+            
             return View();
         }
     }

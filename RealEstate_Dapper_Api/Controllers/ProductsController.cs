@@ -64,5 +64,12 @@ namespace RealEstate_Dapper_Api.Controllers
             var values = await _productRepository.GetProductAdvertListByEmployeeAsyncByFalse(id);
             return Ok(values);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateProduct(CreateProductDto createProductDto)
+        {
+            await _productRepository.CreateProduct(createProductDto);
+            return Ok("Ürün Başarıyla Eklendi.");
+        }
     }
 }
