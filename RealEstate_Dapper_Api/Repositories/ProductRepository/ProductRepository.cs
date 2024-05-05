@@ -99,7 +99,7 @@ namespace RealEstate_Dapper_Api.Repositories.ProductRepository
 
         public async Task<GetProductByProductIdDto> GetProductByProductId(int id)
         {
-            string query = "Select ProductID, Title, Price, City, Dİstrict, CategoryName, Type, CoverImage, Address, DealOfTheDay From Product inner join Category on Product.ProductCategory=Category.CategoryID where ProductID=@productID";
+            string query = "Select ProductID, Title, Price, City, Dİstrict, CategoryName, Type, CoverImage, Address, DealOfTheDay, AdvertisementDate From Product inner join Category on Product.ProductCategory=Category.CategoryID where ProductID=@productID";
             var parameters = new DynamicParameters();
             parameters.Add("@productID", id);
             using (var connection = _context.CreateConnection())
