@@ -48,7 +48,7 @@ namespace Realestate_Dapper_UI.Controllers
             ViewBag.type = values.Type;
             //ViewBag.datediff = values.Advert;
 
-            ViewBag.bathCount = values2.BathRoomCount;
+            ViewBag.bathCount = values2.BathCount;
 
             return View();
         }

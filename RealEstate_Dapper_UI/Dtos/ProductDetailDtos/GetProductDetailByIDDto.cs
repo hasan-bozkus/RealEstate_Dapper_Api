@@ -6,7 +6,7 @@
         public int ProductID { get; set; }
         public int ProductSize { get; set; }
         public int BedRoomCount { get; set; }
-        public int BathRoomCount { get; set; }
+        public int BathCount { get; set; }
         public int RoomCount { get; set; }
         public int GarageSize { get; set; }
         public string BuildYear { get; set; }
