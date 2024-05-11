@@ -1,12 +1,28 @@
-﻿using RealEstate_Dapper_Api.Dtos.ProductImageDtos;
+﻿using Dapper;
+using RealEstate_Dapper_Api.Dtos.ProductImageDtos;
+using RealEstate_Dapper_Api.Models.DapperContext;
 
 namespace RealEstate_Dapper_Api.Repositories.ProductImageRepositories
 {
     public class ProductImageRepository : IProductImageRepository
     {
-        public Task<GetProductImageByProductIDDto> GetProductImageByProductID(int id)
+        private readonly Context _context;
+
+        public ProductImageRepository(Context context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public async Task<List<GetProductImageByProductIDDto>> GetProductImageByProductID(int id)
+        {
+            string query = "Select * From ProductImage Where ProductID=@productID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@productID", id);
+            using (var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryAsync<GetProductImageByProductIDDto>(query, parameters);
+                return values.ToList();
+            }
         }
     }
 }
