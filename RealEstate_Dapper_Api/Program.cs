@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using RealEstate_Dapper_Api.Hubs;
 using RealEstate_Dapper_Api.Models.DapperContext;
+using RealEstate_Dapper_Api.Repositories.AppUserRepositories;
 using RealEstate_Dapper_Api.Repositories.BottomGridRepositories;
 using RealEstate_Dapper_Api.Repositories.CategoryRepository;
 using RealEstate_Dapper_Api.Repositories.ContactRepositories;
@@ -46,6 +47,7 @@ namespace RealEstate_Dapper_Api
             builder.Services.AddTransient<ILast5ProductsRepository, Last5ProductsRepository>();
             builder.Services.AddTransient<IMessageRepository, MessageRepository>();
             builder.Services.AddTransient<IProductImageRepository, ProductImageRepository>();
+            builder.Services.AddTransient<IAppUserRepository, AppUserRepository>();
 
             builder.Services.AddCors(opt =>
             {
