@@ -16,11 +16,11 @@
                         </ul>
                     </div>
                     <form asp-action="PartialSearch" asp-controller="Default" class="w3l-cover-3-gd" method="post">
-                        <input type="search" name="searchKeyValue" placeholder="Anahtar kelimeyi girin" required>
+                        <input type="search" name="word" placeholder="Anahtar kelimeyi girin" required>
                         <span class="input-group-btn">
-                            <select class="btn btn-default" name="propertyCategoryID" required>
+                            <select class="btn btn-default" name="ext" required>
                                 <option selected="">Gayrimenkul türü</option>
-                                @foreach (var item in Model)
+                                @foreach(var item in Model)
                                 {
                                     <option value="@item.CategoryID">@item.CategoryName</option>
                                 }
@@ -37,7 +37,6 @@
                                 <option>Münih</option>
                                 <option>Berlin</option>
                                 <option>Sofya</option>
-                                <option>İzmir</option>
                             </select>
                         </span>
                         <button type="submit" class="btn-primary">Ara</button>

@@ -97,6 +97,16 @@ namespace RealEstate_Dapper_Api.Repositories.ProductRepository
             }
         }
 
+        public async Task<List<ResultProductWithCategoryDto>> GetProductByDealOfTheDayTrueWithCategoryAsync()
+        {
+            string query = "Select ProductID, Title, Price, City, Dİstrict, CategoryName, Type, CoverImage, Address, DealOfTheDay From Product inner join Category on Product.ProductCategory=Category.CategoryID where DealOfTheDay=1";
+            using (var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryAsync<ResultProductWithCategoryDto>(query);
+                return values.ToList();
+            }
+        }
+
         public async Task<GetProductByProductIdDto> GetProductByProductId(int id)
         {
             string query = "Select ProductID, Title, Price, City, Dİstrict, Description, CategoryName, Type, CoverImage, Address, DealOfTheDay, AdvertisementDate From Product inner join Category on Product.ProductCategory=Category.CategoryID where ProductID=@productID";
@@ -140,6 +150,20 @@ namespace RealEstate_Dapper_Api.Repositories.ProductRepository
             using (var connection = _context.CreateConnection())
             {
                 await connection.ExecuteAsync(query, parameters);
+            }
+        }
+
+        public async Task<List<ResultProductWithSearchListDto>> ResultProductWithSearchList(string searchKeyValue, int propertyCategoryID, string city)
+        {
+            string query = "Select * From Product Where Title like '%" + searchKeyValue + "%' And ProductCategory=@propertyCategoryID And City=@city";
+            var parameters = new DynamicParameters();
+            parameters.Add("@searchKeyValue", searchKeyValue);
+            parameters.Add("@propertyCategoryID", propertyCategoryID);
+            parameters.Add("@city", city);
+            using (var conneciton = _context.CreateConnection())
+            {
+                var values = await conneciton.QueryAsync<ResultProductWithSearchListDto>(query, parameters);
+                return values.ToList();
             }
         }
     }

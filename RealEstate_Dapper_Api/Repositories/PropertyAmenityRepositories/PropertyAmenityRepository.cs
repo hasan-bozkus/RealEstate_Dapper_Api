@@ -23,7 +23,6 @@ namespace RealEstate_Dapper_Api.Repositories.PropertyAmenityRepositories
                 var values = await connection.QueryAsync<ResultPropetyAmenityByStatusTrue>(query, parameters);
                 return values.ToList();
             }
-            throw new NotImplementedException();
         }
     }
 }
