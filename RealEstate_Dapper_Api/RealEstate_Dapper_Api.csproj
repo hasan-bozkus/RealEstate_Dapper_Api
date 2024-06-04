@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Dtos\AmenityDtos\" />
+    <Folder Include="ToDoList\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

@@ -19,28 +19,28 @@ namespace RealEstate_Dapper_Api.Controllers
         [HttpGet]
         public async Task<IActionResult> WhoWeAreDetailList()
         {
-            var values = await _whoWeAreDetailRepository.GetAllWhoWeAreAsync();
+            var values = await _whoWeAreDetailRepository.GetAllWhoWeAre();
             return Ok(values);
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateWhoWeAreDetail(CreateWhoWeAreDetailDto createWhoWeAreDetailDto)
         {
-            _whoWeAreDetailRepository.CreateWhoWeAreDetail(createWhoWeAreDetailDto);
+            await _whoWeAreDetailRepository.CreateWhoWeAreDetail(createWhoWeAreDetailDto);
             return Ok("Hakkımızda kısmı ekleme işlemi gerçekleşti.");
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteWhoWeAreDetail(int id)
         {
-            _whoWeAreDetailRepository.DeletWhoWeareDetail(id);
+            await _whoWeAreDetailRepository.DeletWhoWeareDetail(id);
             return Ok("Hakkımızda kısmı silme işlemi gerçeklişti.");
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateWhoWeAreDetail(UpdateWhoWeAreDetailDto updateWhoWeAreDetailDto)
         {
-            _whoWeAreDetailRepository.UpdateWhoWeAreDetail(updateWhoWeAreDetailDto);
+            await _whoWeAreDetailRepository.UpdateWhoWeAreDetail(updateWhoWeAreDetailDto);
             return Ok("Hakkımızda kısmı güncelleme işlemi gerçekleşti.");
         }
 
