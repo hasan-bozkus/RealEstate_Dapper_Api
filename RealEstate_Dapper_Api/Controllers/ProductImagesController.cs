@@ -15,7 +15,7 @@ namespace RealEstate_Dapper_Api.Controllers
             _productImageRepository = productImageRepository;
         }
 
-        [HttpGet]
+        [HttpGet("GetProductImages")]
         public async Task<IActionResult> GetProductImageByID(int id)
         {
             var values = await _productImageRepository.GetProductImageByProductID(id);
