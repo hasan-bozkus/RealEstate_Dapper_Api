@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Realestate_Dapper_UI.Dtos.CategoryDtos;
+using Realestate_Dapper_UI.Models;
 
 namespace Realestate_Dapper_UI.Controllers
 {
