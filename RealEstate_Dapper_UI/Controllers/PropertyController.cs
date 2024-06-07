@@ -47,8 +47,8 @@ namespace Realestate_Dapper_UI.Controllers
             return View();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> PropertySingle(int id)
+        [HttpGet("property/{slug}/{id}")]
+        public async Task<IActionResult> PropertySingle(string slug, int id)
         {
             var client = _httpClientFactory.CreateClient();
 
@@ -62,6 +62,7 @@ namespace Realestate_Dapper_UI.Controllers
 
             ViewBag.productID = values.ProductID;
             ViewBag.titles = values.Title;
+            ViewBag.slugUrl = values.SlugUrl;
             ViewBag.price = values.Price;
             ViewBag.city = values.City;
             ViewBag.district = values.Dİstrict;
@@ -86,7 +87,23 @@ namespace Realestate_Dapper_UI.Controllers
             ViewBag.location = values2.Location;
             ViewBag.video = values2.VideoUrl;
 
+            string slugFromTitle = CreateSlug(values.Title);
+
+            ViewBag.slugUrl = slugFromTitle;
+
             return View();
         }
+
+        private string CreateSlug(string title)
+        {
+            title = title.ToLowerInvariant(); //küçük harfe çevir
+            title = title.Replace(" ", "-"); //boşlukları tire ile değiştir
+            title = System.Text.RegularExpressions.Regex.Replace(title, @"[^a-z0-9\s-]", ""); //geçersiz karakterleri kaldır
+            title = System.Text.RegularExpressions.Regex.Replace(title, @"\s+", " "); //birden fazla boşluğu tek boşluğa indir ve kenar boşluklarını kaldır
+            title = System.Text.RegularExpressions.Regex.Replace(title, @"\s", "-"); //boşlukları tire ile değiştir
+
+            return title;
+        }
+
     }
 }

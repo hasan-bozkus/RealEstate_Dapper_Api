@@ -71,7 +71,7 @@
                             </ul>
                         </div>
 
-                        @await Component.InvokeAsync("_PropertyAmenityStatusToTrueByPropertyIDComponentPartial")
+                        @await Component.InvokeAsync("_PropertyAmenityStatusToTrueByPropertyIDComponentPartial", new { id = @ViewBag.productID })
                     </div>
 
                     <div class="single-bg-white">

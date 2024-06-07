@@ -49,6 +49,11 @@ app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
+         name: "Property",
+    pattern: "property/{slug}/{id}",
+    defaults: new { controller = "Property", action = "PropertySingle" });
+
+    endpoints.MapControllerRoute(
       name: "areas",
       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
     );
