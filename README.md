@@ -18,6 +18,8 @@ Swagger
 
 MSSQL
 
+Trigger
+
 SignalR
 
 Json Web Token (JWT)
