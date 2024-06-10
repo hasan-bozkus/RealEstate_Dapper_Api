@@ -4,7 +4,7 @@
 
 Emlakçı sisteme girdiğinde, kendisine ait olan mülkü/mülkleri ister kiralık ister satılık olarak ilana ekleyebilceği, kullanıcıların ise bu platform üzerinde kiralık ve/veya satılık olan gayrimenkulleri kiralayıp satın alabilcekleri bir platform geliştirmesini amaçladık
 
-Bu projemizde Asp.Net Core 8.0 Web Api ve Mvc olmak üzere iki ana katmandan oluşmaktadır. Ve Neredeyse tüm CRUD işlemleri ve algoritmaları SatckOverFlow firmasının gelşitirmiş olduğu MicroOrm'lerden birisi Dapper  Queryler ile geliştirdik.
+Bu projemizde Asp.Net Core 8.0 Web Api ve Mvc olmak üzere iki ana katmandan oluşmaktadır. Ve Neredeyse tüm CRUD işlemleri ve algoritmaları SatckOverFlow firmasının gelşitirmiş olduğu MicroOrm'lerden birisi olan Dapper  Queryler ile geliştirdik.
 
 # Kullanılan Teknolojler
 
