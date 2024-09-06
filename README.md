@@ -1,5 +1,9 @@
 # Real Estate Emlakçı Projesi (.Net Core 8.0)
 
+# Seritfika
+
+![sertifika](https://github.com/hasan-bozkus/RealEstate_Dapper_Api/blob/master/RealEstate_Dapper_UI/wwwroot/cityimages/HASAN%20BOZKU%C5%9E.jpg)
+
 # Projemizin Temel Maksadı
 
 Emlakçı sisteme girdiğinde, kendisine ait olan mülkü/mülkleri ister kiralık ister satılık olarak ilana ekleyebilceği, kullanıcıların ise bu platform üzerinde kiralık ve/veya satılık olan gayrimenkulleri kiralayıp satın alabilcekleri bir platform geliştirmesini amaçladık
